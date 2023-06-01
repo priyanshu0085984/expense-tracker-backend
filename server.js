@@ -1,4 +1,5 @@
 const app = require("./app");
+const https = require('https');
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 mongoose.set('strictQuery', false);
@@ -18,6 +19,8 @@ mongoose
     console.log("DB connection Unsuccessful");
   });
 const PORT = process.env.PORT || 4000;
+
+https.createServer(app)
 
 app.listen(PORT, () => {
   console.log(`App listening to ${PORT}`);
